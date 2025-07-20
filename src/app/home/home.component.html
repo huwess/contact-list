@@ -20,11 +20,18 @@
   </div>
 
   <div class="mt-3">
-    <ng-container *ngIf="currentView === 'grid'">
+
+    @if (currentView === 'grid') {
       <app-contact-list-card></app-contact-list-card>
-    </ng-container>
-    <ng-container *ngIf="currentView === 'table'">
+    }
+    @if (currentView === 'table') {
       <app-contact-list-table></app-contact-list-table>
-    </ng-container>
+    }
   </div>
+
+  <div class="mt-4 d-flex gap-2">
+    <button type="button" class="btn btn-primary" (click)="openDialog()">Add</button>
+    <button type="button" class="btn btn-danger">Delete</button>
+  </div>
+
 </div>
