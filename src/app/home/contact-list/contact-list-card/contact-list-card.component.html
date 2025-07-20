@@ -1,0 +1,31 @@
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
+    @for (contact of contacts; track contact.id) {
+        <div class="col">
+            <div class="contact-card card p-3 bg-white rounded position-relative">
+                <div class="card-header-row w-100">
+                    <a (click)="goToContactInfo(contact)" class="fw-bold fs-6 text-decoration-none text-dark" style="cursor:pointer;">{{ contact.name }}</a>
+                    <span class="contact-actions d-flex align-items-center">
+                        <button mat-icon-button color="primary" aria-label="Edit Contact">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                        <button mat-icon-button color="warn" aria-label="Delete Contact">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </span>
+                </div>
+                <div class="contact-info">
+                    <div class="small">{{ contact.email }}</div>
+                    <div class="small">
+                        {{
+                            contact.contactNumber
+                                ? (contact.contactNumber | slice:0:4) + '-' +
+                                    (contact.contactNumber | slice:4:7) + '-' +
+                                    (contact.contactNumber | slice:7:11)
+                                : ''
+                        }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

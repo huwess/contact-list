@@ -1,0 +1,29 @@
+<div class="table-responsive">
+  <table class="table align-middle mb-0">
+    <thead class="table-header-violet">
+      <tr>
+        <th>Name</th>
+        <th>Contact Number</th>
+        <th>Email Address</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td>
+          <a (click)="goToContactInfo(contact)" class="text-decoration-none text-dark" style="cursor:pointer;">{{ contact.name }}</a>
+        </td>
+        <td>{{ contact.contactNumber }}</td>
+        <td>{{ contact.email }}</td>
+        <td>
+          <button mat-icon-button color="primary" aria-label="Edit Contact">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Delete Contact">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
